@@ -1,0 +1,3668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amanon Egypt Clone</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .top-nav {
+        background-color: #131921;
+      }
+
+      .secondary-nav {
+        background-color: #232f3e;
+      }
+
+      .secondary-nav .nav-link {
+        color: white !important;
+      }
+
+      .secondary-nav .nav-link:hover {
+        border: 1px solid white;
+      }
+
+      .search-bar {
+        background-color: #febd69;
+        border: none;
+      }
+
+      .hero-background {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-background::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.4) 50%,
+          rgba(255, 255, 255, 1) 100%
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 40px 0;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 400px;
+      }
+
+      .swiper-slide {
+        position: relative;
+      }
+
+      .hero-background {
+        background-size: cover;
+      }
+
+      .product-grid {
+        margin-top: -150px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .price-card {
+        background-color: #ffa41c;
+        color: black;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .price-card h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+      }
+
+      .category-label {
+        font-size: 0.9rem;
+        color: #565959;
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 40px;
+        height: 40%;
+        margin-top: 100px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid #ddd;
+        display: none;
+      }
+
+      .carousel:hover .carousel-control-prev {
+        display: block;
+      }
+
+      .carousel:hover .carousel-control-next {
+        display: block;
+      }
+
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        filter: invert(1);
+      }
+
+      .rounded-circle {
+        transition: transform 0.2s;
+      }
+
+      .card:hover .rounded-circle {
+        transform: scale(1.05);
+      }
+
+      .card .fs-3 {
+        line-height: 1;
+      }
+
+      .badge.bg-secondary {
+        background-color: #cc0c39 !important;
+      }
+
+      /* Make carousel items visible */
+      .carousel-item .row {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+
+      .carousel-item .col {
+        flex: 0 0 auto;
+        width: 200px;
+        margin-right: 1rem;
+      }
+
+      img {
+        cursor: pointer;
+      }
+
+      .links a:hover,
+      .logo:hover {
+        border: 1px solid white;
+      }
+
+      @media screen and (max-width: 900px) {
+        .product-grid {
+          margin-top: 0px;
+        }
+      }
+
+      .banner {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body style="background-color: #f7f7fa">
+    <!--Top Navigation -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #131921">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white me-5 logo" href="#">
+          <img src="./images/logo.png" alt="Amanon.eg" width="120" />
+        </a>
+        <div class="input-group w-50 d-flex justify-content-center">
+          <select class="form-select py-2" style="max-width: 100px">
+            <option>All</option>
+          </select>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search Amanon.eg"
+          />
+          <button class="btn search-bar" type="button">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <button
+          class="navbar-toggler bg-light"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div
+            class="d-flex align-items-center flex-grow-1 justify-content-center align-items-center"
+          >
+            <div class="d-flex align-items-center gap-3 links">
+              <a
+                href="#"
+                class="text-white text-decoration-none mx-2 d-flex gap-2 align-items-center p-2"
+              >
+                <select
+                  class="form-select order-2 bg-transparent text-light border-0"
+                >
+                  <option>EN</option>
+                </select>
+                <img
+                  src="./images/lang.png"
+                  alt="Flag"
+                  class="ms-1"
+                  height="30"
+                />
+              </a>
+              <a
+                href="#"
+                class="text-white text-decoration-none mx-2 d-flex flex-column p-2"
+              >
+                <small style="font-size: 13px">Hello, sign in</small>
+                <strong style="font-size: 13px">Account & Lists</strong>
+              </a>
+              <a href="#" class="text-white text-decoration-none mx-2 p-2">
+                <strong>Orders</strong>
+              </a>
+              <a href="#" class="text-white text-decoration-none mx-2 p-2">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Cart</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Secondary Navigation -->
+    <nav class="navbar navbar-expand secondary-nav p-0">
+      <div class="container-fluid overflow-auto">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-bars"></i> All</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Today's Deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Prime</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mobile Phones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Electronics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Appliances</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Fashion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Video Games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Grocery</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section with Swiper -->
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="hero-background">
+            <img
+              src="./images/hero1.jpg"
+              alt="Fashion"
+              class="img-fluid w-100"
+            />
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="hero-background">
+            <img
+              src="./images/hero2.jpg"
+              alt="Fashion"
+              class="img-fluid w-100"
+            />
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="hero-background">
+            <img
+              src="./images/hero3.jpg"
+              alt="Fashion"
+              class="img-fluid w-100"
+            />
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="hero-background">
+            <img
+              src="./images/hero4.jpg"
+              alt="Fashion"
+              class="img-fluid w-100"
+            />
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="hero-background">
+            <img
+              src="./images/hero5.jpg"
+              alt="Fashion"
+              class="img-fluid w-100"
+            />
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="hero-background">
+            <img
+              src="./images/hero6.jpg"
+              alt="Fashion"
+              class="img-fluid w-100"
+            />
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="hero-background">
+            <img
+              src="./images/hero7.jpg"
+              alt="Fashion"
+              class="img-fluid w-100"
+            />
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="container-fluid product-grid">
+      <div class="row g-4">
+        <!-- Budget Shopping -->
+        <div class="col-md-3">
+          <div class="card border-0 rounded-0" style="height: 100%">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Perfect for budget shopping</h5>
+              <div
+                class="row d-flex align-items-center flex-md-column flex-lg-row justify-content-lg-center justify-content-md-start row-gap-3 mb-5"
+              >
+                <div class="col-12 col-lg-6">
+                  <img
+                    src="./images/price1.jpg"
+                    class="img-fluid"
+                    alt="price 1"
+                  />
+                  <p style="font-size: 13px">Health & Beauty</p>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <img
+                    src="./images/price2.jpg"
+                    class="img-fluid"
+                    alt="price 2"
+                  />
+                  <p style="font-size: 13px">Home care</p>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <img
+                    src="./images/price3.jpg"
+                    class="img-fluid"
+                    alt="price 3"
+                  />
+                  <p style="font-size: 13px">Electronics Accessories</p>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <img
+                    src="./images/price4.jpg"
+                    class="img-fluid"
+                    alt="price 4"
+                  />
+                  <p style="font-size: 13px">Home & kitchen</p>
+                </div>
+              </div>
+              <p
+                class="text-primary"
+                style="font-size: 15px; margin-bottom: 0px"
+              >
+                Shop more
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shopping Deals -->
+        <div class="col-md-3">
+          <div class="card border-0 rounded-0" style="height: 100%">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Continue shopping deals</h5>
+              <div
+                class="row d-flex align-items-center justify-content-center row-gap-3 mb-2"
+              >
+                <div class="col-12 col-lg-6">
+                  <img
+                    src="./images/winter1.jpg"
+                    alt="Winter Accessories"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-12 col-lg-6">
+                  <img
+                    src="./images/winter2.jpg"
+                    alt="Shoes"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-12 col-lg-6">
+                  <img
+                    src="./images/winter3.jpg"
+                    alt="Shoes"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-12 col-lg-6">
+                  <img
+                    src="./images/winter4.jpg"
+                    alt="Shoes"
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+              <p
+                class="text-primary"
+                style="font-size: 15px; margin-bottom: 0px"
+              >
+                Shop more
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- New Year Sale -->
+        <div class="col-md-3">
+          <div class="card border-0 rounded-0" style="height: 100%">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">New Year Sale | Sportswear Hub</h5>
+              <div class="row mb-5">
+                <div class="col-12">
+                  <img
+                    src="./images/fashion.jpg"
+                    alt="Men's Sportswear"
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+              <p
+                class="text-primary"
+                style="font-size: 15px; margin-bottom: 0px"
+              >
+                Shop more
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bank Offers -->
+        <div class="col-md-3">
+          <div class="card border-0 rounded-0" style="height: 100%">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Savings and installments</h5>
+              <div class="row g-2">
+                <div class="col-6">
+                  <img src="./images/save1.jpg" alt="CIB" class="img-fluid" />
+                  <p class="mt-2" style="font-size: 14px">
+                    0% installments up to 6 months
+                  </p>
+                </div>
+                <div class="col-6">
+                  <img src="./images/save2.jpg" alt="QNB" class="img-fluid" />
+                  <p class="mt-2" style="font-size: 14px">
+                    10% off* Up to 200 EGP
+                  </p>
+                </div>
+                <div class="col-6">
+                  <img src="./images/save3.jpg" alt="QNB" class="img-fluid" />
+                  <p class="mt-2" style="font-size: 14px">
+                    10% off* Up to 200 EGP
+                  </p>
+                </div>
+                <div class="col-6">
+                  <img src="./images/save4.jpg" alt="QNB" class="img-fluid" />
+                  <p class="mt-2" style="font-size: 14px">
+                    10% off* Up to 200 EGP
+                  </p>
+                </div>
+              </div>
+              <p
+                class="text-primary"
+                style="font-size: 15px; margin-bottom: 0px"
+              >
+                Shop more
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deal Shopping -->
+        <div class="col-md-3">
+          <div class="card border-0 rounded-0" style="height: 100%">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Deals corner for you</h5>
+              <div
+                class="row d-flex align-items-center flex-md-column flex-lg-row justify-content-lg-center justify-content-md-start row-gap-3 mb-4"
+              >
+                <div class="col-12">
+                  <img
+                    src="./images/deal1.jpg"
+                    class="img-fluid"
+                    alt="price 1"
+                  />
+                  <p style="font-size: 15px; font-weight: 600">Check Out Now</p>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="./images/deal2.jpg"
+                    class="img-fluid"
+                    alt="price 2"
+                  />
+                  <p style="font-size: 13px; font-weight: 600">Fashion</p>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="./images/deal3.jpg"
+                    class="img-fluid"
+                    alt="price 3"
+                  />
+                  <p style="font-size: 13px; font-weight: 600">Electronics</p>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="./images/deal4.jpg"
+                    class="img-fluid"
+                    alt="price 4"
+                  />
+                  <p style="font-size: 13px; font-weight: 600">Groceries</p>
+                </div>
+              </div>
+              <p
+                class="text-primary"
+                style="font-size: 15px; margin-bottom: 0px"
+              >
+                Shop more
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Price Drops Deals -->
+        <div class="col-md-3">
+          <div class="card border-0 rounded-0" style="height: 100%">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">
+                Price Drops | Easy & Free Returns*
+              </h5>
+              <div
+                class="row d-flex align-items-center flex-md-column flex-lg-row justify-content-lg-center justify-content-md-start row-gap-3 mb-5"
+              >
+                <div class="col-12">
+                  <img
+                    src="./images/PriceDrops.jpg"
+                    class="img-fluid"
+                    alt="price 1"
+                  />
+                </div>
+              </div>
+              <p
+                class="text-primary"
+                style="font-size: 15px; margin-bottom: 0px"
+              >
+                Shop more
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Makeup -->
+        <div class="col-md-3">
+          <div class="card border-0 rounded-0" style="height: 100%">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Makeup | New arrivals</h5>
+              <div
+                class="row d-flex align-items-center flex-md-column flex-lg-row justify-content-lg-center justify-content-md-start row-gap-3 mb-5"
+              >
+                <div class="col-12">
+                  <img
+                    src="./images/makeup.jpg"
+                    class="img-fluid"
+                    alt="price 1"
+                  />
+                </div>
+              </div>
+              <p
+                class="text-primary"
+                style="font-size: 15px; margin-bottom: 0px"
+              >
+                Shop more
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selection -->
+        <div class="col-md-3">
+          <div class="card border-0 rounded-0" style="height: 100%">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Today's Picks | Wide Selection</h5>
+              <div
+                class="row d-flex align-items-center flex-md-column flex-lg-row justify-content-lg-center justify-content-md-start row-gap-3 mb-5"
+              >
+                <div class="col-12">
+                  <img
+                    src="./images/elec.jpg"
+                    class="img-fluid"
+                    alt="price 1"
+                  />
+                </div>
+              </div>
+              <p
+                class="text-primary"
+                style="font-size: 15px; margin-bottom: 0px"
+              >
+                Shop more
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner 1 -->
+    <div class="container-fluid mt-4 banner">
+      <div class="col-12 d-grid justify-content-center">
+        <img src="./images/Banner2.gif" class="img-fluid" alt="" />
+      </div>
+    </div>
+
+    <!-- Shop Today's Deals -->
+    <div class="container-fluid my-4">
+      <div
+        class="d-flex justify-content-between align-items-center gap-3 p-3 bg-light"
+      >
+        <h2 class="mb-0" style="font-size: 18px">Shop Today's Deals</h2>
+        <a
+          href="#"
+          class="text-decoration-none btn btn-outline-dark"
+          style="font-size: 14px"
+          >See all deals</a
+        >
+      </div>
+
+      <div
+        id="todaysDealsCarousel"
+        class="carousel slide bg-light"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner row col-12">
+          <div class="carousel-item active">
+            <div class="col-2 ms-3">
+              <div class="card border-0 bg-light">
+                <div class="position-relative">
+                  <img
+                    src="./images/Products/1.jpg"
+                    class="card-img-top"
+                    alt="WD BLACK"
+                  />
+                  <span
+                    class="badge bg-danger position-absolute top-0 start-0 m-2"
+                    >13% off</span
+                  >
+                  <span class="badge position-absolute top-0 end-0 m-2"
+                    >Limited time deal</span
+                  >
+                </div>
+                <div class="card-body px-0">
+                  <div class="d-flex align-items-baseline">
+                    <span class="fs-5">EGP</span>
+                    <span class="fs-3 fw-bold">6,499</span>
+                    <span class="fs-6">00</span>
+                  </div>
+                  <div class="text-white small">
+                    List: <del>EGP 7,499.00</del>
+                  </div>
+                  <p class="card-text mt-2 text-truncate">
+                    WD BLACK P10 Game Drive - 5TB Portable External Hard Drive
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="col-2 ms-3">
+              <div class="card border-0 bg-light">
+                <div class="position-relative">
+                  <img
+                    src="./images/Products/2.jpg"
+                    class="card-img-top"
+                    alt="WD BLACK"
+                  />
+                  <span
+                    class="badge bg-danger position-absolute top-0 start-0 m-2"
+                    >40% off</span
+                  >
+                  <span
+                    class="badge bg-secondary position-absolute top-0 end-0 m-2"
+                    >Limited time deal</span
+                  >
+                </div>
+                <div class="card-body px-0">
+                  <div class="d-flex align-items-baseline">
+                    <span class="fs-5">EGP</span>
+                    <span class="fs-3 fw-bold">4,699</span>
+                    <span class="fs-6">00</span>
+                  </div>
+                  <div class="text-white small">
+                    List: <del>EGP 7,872.27</del>
+                  </div>
+                  <p class="card-text mt-2 text-truncate">
+                    TORNADO Microwave Solo 25 Litre, 900 Watt in Black Color
+                    TM-25MK
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="col-2 ms-3">
+              <div class="card border-0 bg-light">
+                <div class="position-relative">
+                  <img
+                    src="./images/Products/3.jpg"
+                    class="card-img-top"
+                    alt="WD BLACK"
+                  />
+                  <span
+                    class="badge bg-danger position-absolute top-0 start-0 m-2"
+                    >30% off</span
+                  >
+                  <span
+                    class="badge bg-secondary position-absolute top-0 end-0 m-2"
+                    >Limited time deal</span
+                  >
+                </div>
+                <div class="card-body px-0">
+                  <div class="d-flex align-items-baseline">
+                    <span class="fs-5">EGP</span>
+                    <span class="fs-3 fw-bold">2,782</span>
+                    <span class="fs-6">00</span>
+                  </div>
+                  <div class="text-white small">
+                    List: <del>EGP 3,988.68</del>
+                  </div>
+                  <p class="card-text mt-2 text-truncate">
+                    TORNADO Electric Oven 46 litre, 1800 Watt in Black Color
+                    With Grill and Fan TEO-46NE(K)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="col-2 ms-3">
+              <div class="card border-0 bg-light">
+                <div class="position-relative">
+                  <img
+                    src="./images/Products/4.jpg"
+                    class="card-img-top"
+                    alt="WD BLACK"
+                  />
+                  <span
+                    class="badge bg-danger position-absolute top-0 start-0 m-2"
+                    >15% off</span
+                  >
+                  <span
+                    class="badge bg-secondary position-absolute top-0 end-0 m-2"
+                    >Limited time deal</span
+                  >
+                </div>
+                <div class="card-body px-0">
+                  <div class="d-flex align-items-baseline">
+                    <span class="fs-5">EGP</span>
+                    <span class="fs-3 fw-bold">50,999</span>
+                    <span class="fs-6">00</span>
+                  </div>
+                  <div class="text-white small">
+                    List: <del>EGP 59,950.00</del>
+                  </div>
+                  <p class="card-text mt-2 text-truncate">
+                    Apple 2024 MacBook Air 13-inch Laptop with M3 chip:
+                    13.6-inch Liquid Retina Display, 8GB Unified Memory, 256GB
+                    SSD Storage, Backlit Keyboard, 1080p FaceTime HD Camera,
+                    Touch ID; Midnight
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="col-2 ms-3">
+              <div class="card border-0 bg-light">
+                <div class="position-relative">
+                  <img
+                    src="./images/Products/5.jpg"
+                    class="card-img-top"
+                    alt="WD BLACK"
+                  />
+                  <span
+                    class="badge bg-danger position-absolute top-0 start-0 m-2"
+                    >5% off</span
+                  >
+                  <span
+                    class="badge bg-secondary position-absolute top-0 end-0 m-2"
+                    >Limited time deal</span
+                  >
+                </div>
+                <div class="card-body px-0">
+                  <div class="d-flex align-items-baseline">
+                    <span class="fs-5">EGP</span>
+                    <span class="fs-3 fw-bold">16,999</span>
+                    <span class="fs-6">00</span>
+                  </div>
+                  <div class="text-white small">
+                    List: <del>EGP 17,800.00</del>
+                  </div>
+                  <p class="card-text mt-2 text-truncate">
+                    La Germania 9N10GUB1X4AWW Freestanding Cooker with 5 Gas
+                    Burners, 90x60 cm - Black and Silver
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="col-2 ms-3">
+              <div class="card border-0 bg-light">
+                <div class="position-relative">
+                  <img
+                    src="./images/Products/6.jpg"
+                    class="card-img-top"
+                    alt="WD BLACK"
+                  />
+                  <span
+                    class="badge bg-danger position-absolute top-0 start-0 m-2"
+                    >6% off</span
+                  >
+                  <span
+                    class="badge bg-secondary position-absolute top-0 end-0 m-2"
+                    >Limited time deal</span
+                  >
+                </div>
+                <div class="card-body px-0">
+                  <div class="d-flex align-items-baseline">
+                    <span class="fs-5">EGP</span>
+                    <span class="fs-3 fw-bold">12,591.</span>
+                    <span class="fs-6">00</span>
+                  </div>
+                  <div class="text-white small">
+                    List: <del>EGP 1,499.00</del>
+                  </div>
+                  <p class="card-text mt-2 text-truncate">
+                    Arzum okka - turkish coffee machine - white/copper - ok001
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="col-2 ms-3">
+              <div class="card border-0 bg-light">
+                <div class="position-relative">
+                  <img
+                    src="./images/Products/7.jpg"
+                    class="card-img-top"
+                    alt="WD BLACK"
+                  />
+                  <span
+                    class="badge bg-danger position-absolute top-0 start-0 m-2"
+                    >40% off</span
+                  >
+                  <span
+                    class="badge bg-secondary position-absolute top-0 end-0 m-2"
+                    >Limited time deal</span
+                  >
+                </div>
+                <div class="card-body px-0">
+                  <div class="d-flex align-items-baseline">
+                    <span class="fs-5">EGP</span>
+                    <span class="fs-3 fw-bold">2,399</span>
+                    <span class="fs-6">00</span>
+                  </div>
+                  <div class="text-white small">
+                    List: <del>EGP 3,999.00</del>
+                  </div>
+                  <p class="card-text mt-2 text-truncate">
+                    Sony WH-CH520 Wireless Bluetooth On-Ear with Mic for Phone
+                    Call, Black
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="col-2 ms-3">
+              <div class="card border-0 bg-light">
+                <div class="position-relative">
+                  <img
+                    src="./images/Products/8.jpg"
+                    class="card-img-top"
+                    alt="WD BLACK"
+                  />
+                  <span
+                    class="badge bg-danger position-absolute top-0 start-0 m-2"
+                    >30% off</span
+                  >
+                  <span
+                    class="badge bg-secondary position-absolute top-0 end-0 m-2"
+                    >Limited time deal</span
+                  >
+                </div>
+                <div class="card-body px-0">
+                  <div class="d-flex align-items-baseline">
+                    <span class="fs-5">EGP</span>
+                    <span class="fs-3 fw-bold">17,499.</span>
+                    <span class="fs-6">00</span>
+                  </div>
+                  <div class="text-white small">
+                    List: <del>EGP 24,999.00</del>
+                  </div>
+                  <p class="card-text mt-2 text-truncate">
+                    Nespresso lattissima one Coffee Machine White with 3 Free
+                    Coffee Sleeves redeemable at any Nespresso Website
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          style="margin-top: 60px"
+          type="button"
+          data-bs-target="#todaysDealsCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          style="margin-top: 60px"
+          type="button"
+          data-bs-target="#todaysDealsCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- New Year Deals Section -->
+    <div class="container-fluid my-4">
+      <div
+        class="d-flex justify-content-between gap-3 align-items-center bg-light p-3"
+      >
+        <h2 class="mb-0" style="font-size: 18px">New Year, New Deals!</h2>
+        <a
+          href="#"
+          class="text-decoration-none btn btn-outline-dark"
+          style="font-size: 14px"
+          >Shop now</a
+        >
+      </div>
+
+      <div
+        id="newYearDealsCarousel"
+        class="carousel slide bg-light"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-2 ms-3">
+                <div class="card border-0 text-center">
+                  <div class="p-3 mx-auto" style="width: 200px; height: 200px">
+                    <img
+                      src="./images/Products/deal1.jpg"
+                      class="img-fluid"
+                      alt="Supermarket"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2 ms-3">
+                <div class="card border-0 text-center">
+                  <div class="p-3 mx-auto" style="width: 200px; height: 200px">
+                    <img
+                      src="./images/Products/deal2.jpg"
+                      class="img-fluid"
+                      alt="Supermarket"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2 ms-3">
+                <div class="card border-0 text-center">
+                  <div class="p-3 mx-auto" style="width: 200px; height: 200px">
+                    <img
+                      src="./images/Products/deal3.jpg"
+                      class="img-fluid"
+                      alt="Supermarket"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2 ms-3">
+                <div class="card border-0 text-center">
+                  <div class="p-3 mx-auto" style="width: 200px; height: 200px">
+                    <img
+                      src="./images/Products/deal4.jpg"
+                      class="img-fluid"
+                      alt="Supermarket"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2 ms-3">
+                <div class="card border-0 text-center">
+                  <div class="p-3 mx-auto" style="width: 200px; height: 200px">
+                    <img
+                      src="./images/Products/deal5.jpg"
+                      class="img-fluid"
+                      alt="Supermarket"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2 ms-3">
+                <div class="card border-0 text-center">
+                  <div class="p-3 mx-auto" style="width: 200px; height: 200px">
+                    <img
+                      src="./images/Products/deal6.jpg"
+                      class="img-fluid"
+                      alt="Supermarket"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2 ms-3">
+                <div class="card border-0 text-center">
+                  <div class="p-3 mx-auto" style="width: 200px; height: 200px">
+                    <img
+                      src="./images/Products/deal7.jpg"
+                      class="img-fluid"
+                      alt="Supermarket"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2 ms-3">
+                <div class="card border-0 text-center">
+                  <div class="p-3 mx-auto" style="width: 200px; height: 200px">
+                    <img
+                      src="./images/Products/deal8.jpg"
+                      class="img-fluid"
+                      alt="Supermarket"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2 ms-3">
+                <div class="card border-0 text-center">
+                  <div class="p-3 mx-auto" style="width: 200px; height: 200px">
+                    <img
+                      src="./images/Products/deal9.jpg"
+                      class="img-fluid"
+                      alt="Supermarket"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="container-fluid mb-4 px-5">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card border-0 rounded-0" style="height: 100%">
+            <div class="card-body">
+              <h5 class="card-title fw-bold ps-4 mb-5">More reasons to shop</h5>
+              <div
+                class="d-flex align-items-center flex-md-column flex-lg-row justify-content-lg-center justify-content-md-start flex-wrap gap-4"
+              >
+                <div class="col-10 col-lg-5 card border-0 p-0">
+                  <img
+                    src="./images/Products/shop1.avif"
+                    class="img-fluid"
+                    alt="price 1"
+                  />
+                </div>
+                <div class="col-10 col-lg-5 card border-0 p-0">
+                  <img
+                    src="./images/Products/shop2.avif"
+                    class="img-fluid"
+                    alt="price 2"
+                  />
+                </div>
+                <div class="col-10 col-lg-5 card border-0 p-0">
+                  <img
+                    src="./images/Products/shop3.avif"
+                    class="img-fluid"
+                    alt="price 3"
+                  />
+                </div>
+                <div class="col-10 col-lg-5 card border-0 p-0">
+                  <img
+                    src="./images/Products/shop4.avif"
+                    class="img-fluid"
+                    alt="price 4"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card border-0" style="height: 100%">
+            <div class="card-body" style="background-color: #fdf6bb">
+              <div
+                class="d-flex justify-content-between align-items-center mb-4"
+              >
+                <h5 class="card-title fw-bold ps-4">Mega deals</h5>
+                <button class="btn btn-outline-dark rounded-0 p-1 px-3 me-4">
+                  All deals
+                </button>
+              </div>
+              <div
+                class="d-flex align-items-center flex-md-column flex-lg-row justify-content-lg-center justify-content-md-start flex-wrap gap-4"
+              >
+                <div
+                  class="col-10 col-lg-5 card border-0 rounded-3 p-0 position-relative"
+                  style="background-color: #f7f7f7"
+                >
+                  <div style="background-color: #ffffff" class="rounded-3">
+                    <img
+                      src="./images/Products/shop5.avif"
+                      alt="Winter Accessories"
+                      class="img-fluid mx-auto d-block"
+                      width="90"
+                    />
+                  </div>
+                  <p
+                    class="position-absolute p-1 text-danger fw-bold"
+                    style="
+                      font-size: 12px;
+                      top: 0;
+                      right: 0;
+                      border-bottom-left-radius: 10px;
+                      border-top-right-radius: 6px;
+                      background-color: #ffea00;
+                    "
+                  >
+                    Fashion deals
+                  </p>
+                  <div class="p-3 pb-0">
+                    <p style="font-size: 13px" class="mb-0">
+                      Casio, Alba & more
+                    </p>
+                    <h3 style="font-size: 20px">Up to 70% off</h3>
+                  </div>
+                </div>
+
+                <div
+                  class="col-10 col-lg-5 card border-0 rounded-3 p-0 position-relative"
+                  style="background-color: #f7f7f7"
+                >
+                  <div
+                    style="background-color: #ffffff"
+                    class="rounded-3 position-relative"
+                  >
+                    <img
+                      src="./images/Products/shop6.avif"
+                      alt="Winter Accessories"
+                      class="img-fluid mx-auto d-block"
+                      width="90"
+                    />
+                    <p
+                      class="position-absolute shadow p-1 px-2"
+                      style="
+                        font-size: 18px;
+                        bottom: -10px;
+                        right: 8px;
+                        background-color: #ffffff;
+                        cursor: pointer;
+                      "
+                    >
+                      <i class="bi bi-cart-plus"></i>
+                    </p>
+                  </div>
+                  <p
+                    class="position-absolute p-1 text-danger fw-bold"
+                    style="
+                      font-size: 12px;
+                      top: 0;
+                      right: 0;
+                      border-bottom-left-radius: 10px;
+                      border-top-right-radius: 6px;
+                      background-color: #ffea00;
+                    "
+                  >
+                    Wearable deals
+                  </p>
+                  <div class="p-3 pb-0 pt-2">
+                    <p style="font-size: 13px" class="mb-0">
+                      Mibro A2 Smart Watch
+                    </p>
+                    <h3 style="font-size: 15px; font-weight: bold">
+                      <span
+                        style="font-size: 13px"
+                        class="text-secondary text-decoration-line-through"
+                        >1403.00</span
+                      >
+                      249.00 EGP
+                    </h3>
+                  </div>
+                </div>
+
+                <div
+                  class="col-10 col-lg-5 card border-0 rounded-3 p-0 position-relative"
+                  style="background-color: #f7f7f7"
+                >
+                  <div style="background-color: #ffffff" class="rounded-3">
+                    <img
+                      src="./images/Products/shop7.avif"
+                      alt="Winter Accessories"
+                      class="img-fluid mx-auto d-block"
+                      width="90"
+                    />
+                  </div>
+                  <p
+                    class="position-absolute p-1 text-danger fw-bold"
+                    style="
+                      font-size: 12px;
+                      top: 0;
+                      right: 0;
+                      border-bottom-left-radius: 10px;
+                      border-top-right-radius: 6px;
+                      background-color: #ffea00;
+                    "
+                  >
+                    Grocery deals
+                  </p>
+                  <div class="p-3 pb-0">
+                    <p style="font-size: 13px" class="mb-0">
+                      Cadbury Chocolate
+                    </p>
+                    <h3 style="font-size: 20px">Up to 20% off</h3>
+                  </div>
+                </div>
+
+                <div
+                  class="col-10 col-lg-5 border-0 rounded-3 p-0 position-relative"
+                  style="background-color: #f7f7f7"
+                >
+                  <div style="background-color: #ffffff" class="rounded-3">
+                    <img
+                      src="./images/Products/shop8.avif"
+                      alt="Winter Accessories"
+                      class="img-fluid mx-auto d-block"
+                      width="90"
+                    />
+                  </div>
+                  <p
+                    class="position-absolute p-1 text-danger fw-bold"
+                    style="
+                      font-size: 12px;
+                      top: 0;
+                      right: 0;
+                      border-bottom-left-radius: 10px;
+                      border-top-right-radius: 6px;
+                      background-color: #ffea00;
+                    "
+                  >
+                    Sports deals
+                  </p>
+                  <div class="p-3 pb-0">
+                    <p style="font-size: 13px" class="mb-0">
+                      Resistance Bands & more
+                    </p>
+                    <h3 style="font-size: 20px">Up to 35% off</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card border-0 rounded-0" style="height: 100%">
+            <div class="card-body">
+              <h5 class="card-title fw-bold mb-4">In focus</h5>
+              <div class="row mb-5 g-4">
+                <div class="col-12">
+                  <img
+                    src="./images/Products/shop9.avif"
+                    alt="Men's Sportswear"
+                    class="img-fluid"
+                  />
+                </div>
+
+                <div class="col-12">
+                  <img
+                    src="./images/Products/shop10.avif"
+                    alt="Men's Sportswear"
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Previously Browsed Products -->
+    <div class="container-fluid my-5">
+      <h2 class="mb-4 text-center">
+        PREVIOUSLY BROWSED <span class="text-danger">PRODUCTS</span>
+      </h2>
+
+      <!-- Products Carousel -->
+      <div style="background-color: #fceccd">
+        <div class="position-relative">
+          <div class="d-flex flex-wrap pt-3">
+            <div class="col-2 ps-5 pt-5">
+              <h2 class="text-uppercase">
+                Home & <br />
+                Appliances Sale |
+              </h2>
+              <p class="text-uppercase" style="color: #de8c60">5-7 January</p>
+            </div>
+            
+            <!-- Kitchen & Dining -->
+            <div class="col-12 col-lg-2">
+              <div class="text-center">
+                <img
+                  src="./images/Previous prowsed/1.avif"
+                  class="card-img-top rounded-circle w-75"
+                  alt="Kitchen"
+                />
+              </div>
+            </div>
+
+            <!-- Bedding -->
+            <div class="col-12 col-lg-2">
+              <div class="text-center">
+                <img
+                  src="./images/Previous prowsed/2.avif"
+                  class="card-img-top rounded-circle w-75"
+                  alt="Bedding"
+                />
+              </div>
+            </div>
+
+            <!-- Appliances -->
+            <div class="col-12 col-lg-2">
+              <div class="text-center">
+                <img
+                  src="./images/Previous prowsed/3.avif"
+                  class="card-img-top rounded-circle w-75"
+                  alt="Appliances"
+                />
+              </div>
+            </div>
+
+            <!-- Furniture -->
+            <div class="col-12 col-lg-2">
+              <div class="text-center">
+                <img
+                  src="./images/Previous prowsed/4.avif"
+                  class="card-img-top rounded-circle w-75"
+                  alt="Furniture"
+                />
+              </div>
+            </div>
+
+            <!-- Home Decor -->
+            <div class="col-12 col-lg-2">
+              <div class="text-center">
+                <img
+                  src="./images/Previous prowsed/5.avif"
+                  class="card-img-top rounded-circle w-75"
+                  alt="Home Decor"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deals Section -->
+        <div class="mt-5">
+          <h2 class="mb-4 text-center">
+            <span style="color: #de8c60">DEALS</span> YOU CAN'T MISS!
+          </h2>
+
+          <!-- Deals Cards -->
+          <div class="row px-4 g-3">
+            <!-- Tool Deals -->
+            <div class="col-md-3">
+              <div class="card border-0">
+                <div
+                  class="badge bg-danger position-absolute top-0 start-0 m-2"
+                >
+                  Tool deals
+                </div>
+                <img
+                  src="./images/Previous prowsed/6.avif"
+                  class="img-fluid mx-auto d-block"
+                  alt="Power Tools"
+                  width="100"
+                />
+                <div
+                  class="card-body p-1 ps-3"
+                  style="background-color: #f7f7f7"
+                >
+                  <p class="card-text small mb-0">
+                    Power & hand tools and more
+                  </p>
+                  <h5 class="card-title fw-bold fs-4">Up to 35% off</h5>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bedding Deals -->
+            <div class="col-md-3">
+              <div class="card border-0">
+                <div
+                  class="badge bg-danger position-absolute top-0 start-0 m-2"
+                >
+                  Bedding deals
+                </div>
+                <img
+                  src="./images/Previous prowsed/7.avif"
+                  class="img-fluid mx-auto d-block"
+                  alt="Blankets"
+                  width="100"
+                />
+                <div
+                  class="card-body p-1 ps-3"
+                  style="background-color: #f7f7f7"
+                >
+                  <p class="card-text small mb-0">Blankets</p>
+                  <h5 class="card-title fw-bold fs-4">Up to 50% off</h5>
+                </div>
+              </div>
+            </div>
+
+            <!-- Appliances Deals -->
+            <div class="col-md-3">
+              <div class="card border-0">
+                <div
+                  class="badge bg-danger position-absolute top-0 start-0 m-2"
+                >
+                  Appliances deals
+                </div>
+                <img
+                  src="./images/Previous prowsed/8.avif"
+                  class="img-fluid mx-auto d-block"
+                  alt="Air Fryer"
+                  width="100"
+                />
+                <div
+                  class="card-body p-1 ps-3"
+                  style="background-color: #f7f7f7"
+                >
+                  <p class="card-text small mb-0">
+                    Philips Essential XL Electric Fryer
+                  </p>
+                  <h5 class="card-title fw-bold fs-4">
+                    <span style="font-size: 15px; text-decoration: line-through"
+                      >9499</span
+                    >
+                    5799 EGP
+                  </h5>
+                </div>
+              </div>
+            </div>
+
+            <!-- TV Deals -->
+            <div class="col-md-3">
+              <div class="card border-0">
+                <div
+                  class="badge bg-danger position-absolute top-0 start-0 m-2"
+                >
+                  TV deals
+                </div>
+                <img
+                  src="./images/Previous prowsed/9.avif"
+                  class="img-fluid mx-auto d-block"
+                  alt="TV"
+                  width="100"
+                />
+                <div
+                  class="card-body p-1 ps-3"
+                  style="background-color: #f7f7f7"
+                >
+                  <p class="card-text small mb-0">
+                    SHARP 50 Inch 4K Frameless TV
+                  </p>
+                  <h5 class="card-title fw-bold fs-4">
+                    <span style="font-size: 15px; text-decoration: line-through"
+                      >20999</span
+                    >
+                    15999 EGP
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coupon Zone -->
+          <h2 class="my-4 text-center" style="color: #de8c60">COUPON ZONE</h2>
+          <div class="row g-3 px-4 pb-4">
+            <!-- Coupon Cards -->
+            <div class="col-md-3">
+              <div class="card border-0" style="background-color: #fceccd">
+                <div class="card-body">
+                  <img
+                    src="./images/Previous prowsed/coupon/1.avif"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card border-0" style="background-color: #fceccd">
+                <div class="card-body">
+                  <img
+                    src="./images/Previous prowsed/coupon/2.avif"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card border-0" style="background-color: #fceccd">
+                <div class="card-body">
+                  <img
+                    src="./images/Previous prowsed/coupon/3.avif"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card border-0" style="background-color: #fceccd">
+                <div class="card-body">
+                  <img
+                    src="./images/Previous prowsed/coupon/4.avif"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card border-0" style="background-color: #fceccd">
+                <div class="card-body">
+                  <img
+                    src="./images/Previous prowsed/coupon/5.avif"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card border-0" style="background-color: #fceccd">
+                <div class="card-body">
+                  <img
+                    src="./images/Previous prowsed/coupon/6.avif"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card border-0" style="background-color: #fceccd">
+                <div class="card-body">
+                  <img
+                    src="./images/Previous prowsed/coupon/7.avif"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card border-0" style="background-color: #fceccd">
+                <div class="card-body">
+                  <img
+                    src="./images/Previous prowsed/coupon/8.avif"
+                    class="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner 2 -->
+    <div class="container-fluid my-4 banner">
+      <div class="col-12 d-flex justify-content-center">
+        <img src="./images/banner.avif" class="img-fluid" alt="" />
+      </div>
+    </div>
+
+    <!-- Categories Section -->
+    <div class="container-fluid">
+      <h2 class="text-center fw-bold my-5 mb-3" style="font-size: 50px">
+        Keep Shopping <span style="color: #de8c60">For</span>
+      </h2>
+      <div class="row mb-2">
+        <div
+          class="container d-flex justify-content-between align-items-center"
+        >
+          <h2>Electronics</h2>
+          <button class="btn btn-outline-dark">SHOP ALL</button>
+        </div>
+
+        <div class="row">
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="rounded-3">
+              <img
+                src="./images/keep shopping/1.avif"
+                alt="Mobiles & tablets"
+                class="img-fluid p-3"
+              />
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="text-center">
+              <div class="rounded-3">
+                <img
+                  src="./images/keep shopping/2.avif"
+                  alt="TVs"
+                  class="img-fluid p-3"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="text-center">
+              <div class="rounded-3">
+                <img
+                  src="./images/keep shopping/3.avif"
+                  alt="Video games"
+                  class="img-fluid p-3"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="text-center">
+              <div class="rounded-3">
+                <img
+                  src="./images/keep shopping/4.avif"
+                  alt="Audio devices"
+                  class="img-fluid p-3"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="text-center">
+              <div class="rounded-3">
+                <img
+                  src="./images/keep shopping/6.avif"
+                  alt="Audio devices"
+                  class="img-fluid p-3"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="text-center">
+              <div class="rounded-3">
+                <img
+                  src="./images/keep shopping/7.avif"
+                  alt="Audio devices"
+                  class="img-fluid p-3"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-0">
+          <h2>Electronics bestsellers</h2>
+          <button class="btn btn-outline-dark">SHOP NOW</button>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 position-relative">
+              <!-- Wishlist & Cart Button -->
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mt-2"
+                style="width: 44px; height: 32px"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mb-2"
+                style="width: 44px; height: 32px; bottom: 38%"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Best Seller Badge -->
+              <span class="badge bg-dark position-absolute start-0 ms-2 mt-2"
+                >Best Seller</span
+              >
+
+              <!-- Product Image -->
+              <div class="text-center p-3">
+                <img
+                  src="./images/keep shopping/8.avif"
+                  alt="Product"
+                  class="img-fluid"
+                />
+              </div>
+
+              <!-- Product Info -->
+              <div class="card-body p-3">
+                <!-- Rating -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="text-warning">★</span>
+                  <span class="ms-1">4.7</span>
+                  <span class="text-muted ms-1">(889)</span>
+                </div>
+
+                <!-- Title -->
+                <h6 class="card-title text-truncate">
+                  Anker 333 Ultra-Durable Cable USB-C to USB-C
+                </h6>
+
+                <!-- Price and Discount -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="fw-bold">EGP 149</span>
+                  <span class="text-success ms-2">35% OFF</span>
+                </div>
+
+                <!-- Express Badge -->
+                <span class="badge bg-warning text-dark">express</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 position-relative">
+              <!-- Wishlist & Cart Button -->
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mt-2"
+                style="width: 44px; height: 32px"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </button>
+
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mb-2"
+                style="width: 44px; height: 32px; bottom: 38%"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Best Seller Badge -->
+              <span class="badge bg-dark position-absolute start-0 ms-2 mt-2"
+                >Best Seller</span
+              >
+
+              <!-- Product Image -->
+              <div class="text-center p-3">
+                <img
+                  src="./images/keep shopping/9.avif"
+                  alt="Product"
+                  class="img-fluid"
+                />
+              </div>
+
+              <!-- Product Info -->
+              <div class="card-body p-3">
+                <!-- Rating -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="text-warning">★</span>
+                  <span class="ms-1">3.6</span>
+                  <span class="text-muted ms-1">(889)</span>
+                </div>
+
+                <!-- Title -->
+                <h6 class="card-title text-truncate">
+                  Generic Pro Airpods Earphones Compatible with Android iPhone
+                  White with Black Protective Case
+                </h6>
+
+                <!-- Price and Discount -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="fw-bold">EGP 384.00</span>
+                  <span class="text-success ms-2">35% OFF</span>
+                </div>
+
+                <!-- Express Badge -->
+                <span class="badge bg-warning text-dark">express</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 position-relative">
+              <!-- Wishlist & Cart Button -->
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mt-2"
+                style="width: 44px; height: 32px"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mb-2"
+                style="width: 44px; height: 32px; bottom: 38%"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Best Seller Badge -->
+              <span class="badge bg-dark position-absolute start-0 ms-2 mt-2"
+                >Best Seller</span
+              >
+
+              <!-- Product Image -->
+              <div class="text-center p-3">
+                <img
+                  src="./images/keep shopping/10.avif"
+                  alt="Product"
+                  class="img-fluid"
+                />
+              </div>
+
+              <!-- Product Info -->
+              <div class="card-body p-3">
+                <!-- Rating -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="text-warning">★</span>
+                  <span class="ms-1">4.1</span>
+                  <span class="text-muted ms-1">(889)</span>
+                </div>
+
+                <!-- Title -->
+                <h6 class="card-title text-truncate">
+                  Oraimo Watch 5 Bluetooth Call Smart Watch 2.01inch HD Display
+                  Fitness Watch, 300 mAh, Scratch-resistant &Anti-Explosion
+                  Tempered Glass Screen with 100+ Sports Modes & Blood Oxygen &
+                  Heart Rate Monitor, Waterproof Light Chrome Black
+                </h6>
+
+                <!-- Price and Discount -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="fw-bold">EGP 999.00</span>
+                  <span class="text-success ms-2">35% OFF</span>
+                </div>
+
+                <!-- Express Badge -->
+                <span class="badge bg-warning text-dark">express</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 position-relative">
+              <!-- Wishlist & Cart Button -->
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mt-2"
+                style="width: 44px; height: 32px"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mb-2"
+                style="width: 44px; height: 32px; bottom: 38%"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Best Seller Badge -->
+              <span class="badge bg-dark position-absolute start-0 ms-2 mt-2"
+                >Best Seller</span
+              >
+
+              <!-- Product Image -->
+              <div class="text-center p-3">
+                <img
+                  src="./images/keep shopping/11.avif"
+                  alt="Product"
+                  class="img-fluid"
+                />
+              </div>
+
+              <!-- Product Info -->
+              <div class="card-body p-3">
+                <!-- Rating -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="text-warning">★</span>
+                  <span class="ms-1">3.6</span>
+                  <span class="text-muted ms-1">(889)</span>
+                </div>
+
+                <!-- Title -->
+                <h6 class="card-title text-truncate">
+                  Logitech G102 Light Sync Gaming Mouse with Customizable RGB
+                  Lighting, 6
+                </h6>
+
+                <!-- Price and Discount -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="fw-bold">EGP 888.00</span>
+                  <span class="text-success ms-2">35% OFF</span>
+                </div>
+
+                <!-- Express Badge -->
+                <span class="badge bg-warning text-dark">express</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 position-relative">
+              <!-- Wishlist & Cart Button -->
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mt-2"
+                style="width: 44px; height: 32px"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mb-2"
+                style="width: 44px; height: 32px; bottom: 38%"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Best Seller Badge -->
+              <span class="badge bg-dark position-absolute start-0 ms-2 mt-2"
+                >Best Seller</span
+              >
+
+              <!-- Product Image -->
+              <div class="text-center p-3">
+                <img
+                  src="./images/keep shopping/12.avif"
+                  alt="Product"
+                  class="img-fluid"
+                />
+              </div>
+
+              <!-- Product Info -->
+              <div class="card-body p-3">
+                <!-- Rating -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="text-warning">★</span>
+                  <span class="ms-1">4.5</span>
+                  <span class="text-muted ms-1">(889)</span>
+                </div>
+
+                <!-- Title -->
+                <h6 class="card-title text-truncate">
+                  Sony PlayStation 5 Slim Console (International Version) Disc
+                  Version With Controller
+                </h6>
+
+                <!-- Price and Discount -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="fw-bold">EGP 31328.50</span>
+                  <span class="text-success ms-2">35% OFF</span>
+                </div>
+
+                <!-- Express Badge -->
+                <span class="badge bg-success-subtle text-dark">Market</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 position-relative">
+              <!-- Wishlist & Cart Button -->
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mt-2"
+                style="width: 44px; height: 32px"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </button>
+
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mb-2"
+                style="width: 44px; height: 32px; bottom: 38%"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Best Seller Badge -->
+              <span class="badge bg-dark position-absolute start-0 ms-2 mt-2"
+                >Best Seller</span
+              >
+
+              <!-- Product Image -->
+              <div class="text-center p-3">
+                <img
+                  src="./images/keep shopping/13.avif"
+                  alt="Product"
+                  class="img-fluid"
+                />
+              </div>
+
+              <!-- Product Info -->
+              <div class="card-body p-3">
+                <!-- Rating -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="text-warning">★</span>
+                  <span class="ms-1">4.3</span>
+                  <span class="text-muted ms-1">(423)</span>
+                </div>
+
+                <!-- Title -->
+                <h6 class="card-title text-truncate">
+                  Samsung 43-Inch Full HD Smart TV With Built In Receiver
+                  43T5300 / UA43T5300AUXEG Black
+                </h6>
+
+                <!-- Price and Discount -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="fw-bold">EGP 13999.00</span>
+                  <span class="text-success ms-2">35% OFF</span>
+                </div>
+
+                <!-- Express Badge -->
+                <span class="badge bg-success-subtle text-dark">market</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Baby Section -->
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div
+          class="container d-flex justify-content-between align-items-center"
+        >
+          <h2>Baby</h2>
+          <button class="btn btn-outline-dark">SHOP ALL</button>
+        </div>
+
+        <div class="row">
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="rounded-3">
+              <img
+                src="./images/keep shopping/14.avif"
+                alt="Mobiles & tablets"
+                class="img-fluid p-3"
+              />
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="text-center">
+              <div class="rounded-3">
+                <img
+                  src="./images/keep shopping/15.avif"
+                  alt="TVs"
+                  class="img-fluid p-3"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="text-center">
+              <div class="rounded-3">
+                <img
+                  src="./images/keep shopping/16.avif"
+                  alt="Video games"
+                  class="img-fluid p-3"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="text-center">
+              <div class="rounded-3">
+                <img
+                  src="./images/keep shopping/17.avif"
+                  alt="Audio devices"
+                  class="img-fluid p-3"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="text-center">
+              <div class="rounded-3">
+                <img
+                  src="./images/keep shopping/18.avif"
+                  alt="Audio devices"
+                  class="img-fluid p-3"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="text-center">
+              <div class="rounded-3">
+                <img
+                  src="./images/keep shopping/19.avif"
+                  alt="Audio devices"
+                  class="img-fluid p-3"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-0">
+          <h2>Baby best sellers</h2>
+          <button class="btn btn-outline-dark">SHOP NOW</button>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 position-relative">
+              <!-- Wishlist & Cart Button -->
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mt-2"
+                style="width: 44px; height: 32px"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mb-2"
+                style="width: 44px; height: 32px; bottom: 38%"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Best Seller Badge -->
+              <span class="badge bg-dark position-absolute start-0 ms-2 mt-2"
+                >Best Seller</span
+              >
+
+              <!-- Product Image -->
+              <div class="text-center p-3">
+                <img
+                  src="./images/keep shopping/20.avif"
+                  alt="Product"
+                  class="img-fluid"
+                />
+              </div>
+
+              <!-- Product Info -->
+              <div class="card-body p-3">
+                <!-- Rating -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="text-warning">★</span>
+                  <span class="ms-1">4.5</span>
+                  <span class="text-muted ms-1">(398)</span>
+                </div>
+
+                <!-- Title -->
+                <h6 class="card-title text-truncate">
+                  Molfix 60 Piece - Jumbo Economy 3D Size 2 Mini (3-6 Kg)
+                </h6>
+
+                <!-- Price and Discount -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="fw-bold">EGP 314.05</span>
+                  <span class="text-success ms-2">7% OFF</span>
+                </div>
+
+                <!-- Express Badge -->
+                <span class="badge bg-warning text-dark">express</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 position-relative">
+              <!-- Wishlist & Cart Button -->
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mt-2"
+                style="width: 44px; height: 32px"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mb-2"
+                style="width: 44px; height: 32px; bottom: 38%"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Best Seller Badge -->
+              <span class="badge bg-dark position-absolute start-0 ms-2 mt-2"
+                >Best Seller</span
+              >
+
+              <!-- Product Image -->
+              <div class="text-center p-3">
+                <img
+                  src="./images/keep shopping/21.avif"
+                  alt="Product"
+                  class="img-fluid"
+                />
+              </div>
+
+              <!-- Product Info -->
+              <div class="card-body p-3">
+                <!-- Rating -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="text-warning">★</span>
+                  <span class="ms-1">4.5</span>
+                  <span class="text-muted ms-1">(592)</span>
+                </div>
+
+                <!-- Title -->
+                <h6 class="card-title text-truncate">
+                  PENDULINE Kids Hair Cream 150 Ml
+                </h6>
+
+                <!-- Price and Discount -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="fw-bold">EGP 78.50</span>
+                  <span class="text-success ms-2">7% OFF</span>
+                </div>
+
+                <!-- Express Badge -->
+                <span class="badge bg-success-subtle text-dark">market</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 position-relative">
+              <!-- Wishlist & Cart Button -->
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mt-2"
+                style="width: 44px; height: 32px"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mb-2"
+                style="width: 44px; height: 32px; bottom: 38%"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Best Seller Badge -->
+              <span class="badge bg-dark position-absolute start-0 ms-2 mt-2"
+                >Best Seller</span
+              >
+
+              <!-- Product Image -->
+              <div class="text-center p-3">
+                <img
+                  src="./images/keep shopping/22.avif"
+                  alt="Product"
+                  class="img-fluid"
+                />
+              </div>
+
+              <!-- Product Info -->
+              <div class="card-body p-3">
+                <!-- Rating -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="text-warning">★</span>
+                  <span class="ms-1">3.9</span>
+                  <span class="text-muted ms-1">(1.7k)</span>
+                </div>
+
+                <!-- Title -->
+                <h6 class="card-title text-truncate">
+                  Sudocrem Antiseptic Healing Cream To Protect Rash And Surface
+                  Wound - 250g
+                </h6>
+
+                <!-- Price and Discount -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="fw-bold">EGP 599.00</span>
+                  <span class="text-success ms-2">12% OFF</span>
+                </div>
+
+                <!-- Express Badge -->
+                <span class="badge bg-warning text-dark">express</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 position-relative">
+              <!-- Wishlist & Cart Button -->
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mt-2"
+                style="width: 44px; height: 32px"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mb-2"
+                style="width: 44px; height: 32px; bottom: 38%"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Best Seller Badge -->
+              <span class="badge bg-dark position-absolute start-0 ms-2 mt-2"
+                >Best Seller</span
+              >
+
+              <!-- Product Image -->
+              <div class="text-center p-3">
+                <img
+                  src="./images/keep shopping/23.avif"
+                  alt="Product"
+                  class="img-fluid"
+                />
+              </div>
+
+              <!-- Product Info -->
+              <div class="card-body p-3">
+                <!-- Rating -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="text-warning">★</span>
+                  <span class="ms-1">4.6</span>
+                  <span class="text-muted ms-1">(466)</span>
+                </div>
+
+                <!-- Title -->
+                <h6 class="card-title text-truncate">
+                  sanosan Baby Bath & Shampoo 500ml
+                </h6>
+
+                <!-- Price and Discount -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="fw-bold">EGP 419.00</span>
+                  <span class="text-success ms-2">8% OFF</span>
+                </div>
+
+                <!-- Express Badge -->
+                <span class="badge bg-warning text-dark">express</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 position-relative">
+              <!-- Wishlist & Cart Button -->
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mt-2"
+                style="width: 44px; height: 32px"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mb-2"
+                style="width: 44px; height: 32px; bottom: 38%"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Best Seller Badge -->
+              <span class="badge bg-dark position-absolute start-0 ms-2 mt-2"
+                >Best Seller</span
+              >
+
+              <!-- Product Image -->
+              <div class="text-center p-3">
+                <img
+                  src="./images/keep shopping/24.avif"
+                  alt="Product"
+                  class="img-fluid"
+                />
+              </div>
+
+              <!-- Product Info -->
+              <div class="card-body p-3">
+                <!-- Rating -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="text-warning">★</span>
+                  <span class="ms-1">4.1</span>
+                  <span class="text-muted ms-1">(1.9k)</span>
+                </div>
+
+                <!-- Title -->
+                <h6 class="card-title text-truncate">
+                  Johnson's Baby Shampoo 750ml
+                </h6>
+
+                <!-- Price and Discount -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="fw-bold">EGP 223.00</span>
+                  <span class="text-success ms-2">9% OFF</span>
+                </div>
+
+                <!-- Express Badge -->
+                <span class="badge bg-warning text-dark">express</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 position-relative">
+              <!-- Wishlist & Cart Button -->
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mt-2"
+                style="width: 44px; height: 32px"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="btn btn-light shadow position-absolute end-0 me-2 mb-2"
+                style="width: 44px; height: 32px; bottom: 38%"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="pb-1"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Best Seller Badge -->
+              <span class="badge bg-dark position-absolute start-0 ms-2 mt-2"
+                >Best Seller</span
+              >
+
+              <!-- Product Image -->
+              <div class="text-center p-3">
+                <img
+                  src="./images/keep shopping/25.avif"
+                  alt="Product"
+                  class="img-fluid"
+                />
+              </div>
+
+              <!-- Product Info -->
+              <div class="card-body p-3">
+                <!-- Rating -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="text-warning">★</span>
+                  <span class="ms-1">4.5</span>
+                  <span class="text-muted ms-1">(1.7k)</span>
+                </div>
+
+                <!-- Title -->
+                <h6 class="card-title text-truncate">
+                  Molfix 80 Piece- Maxi Mega Pack 3D, Size 4, 7 to 18 kg
+                </h6>
+
+                <!-- Price and Discount -->
+                <div class="d-flex align-items-center mb-2">
+                  <span class="fw-bold">EGP 420.00</span>
+                  <span class="text-success ms-2">10% OFF</span>
+                </div>
+
+                <!-- Express Badge -->
+                <span class="badge bg-success-subtle text-dark">market</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- go-to guide Section -->
+    <div class="container-fluid my-5">
+      <div
+        class="d-flex justify-content-between gap-3 align-items-center p-3"
+        style="background-color: #ffffff"
+      >
+        <h2 class="mb-0 fw-bold" style="font-size: 25px">
+          Your Amanon go-to guide!
+        </h2>
+        <a
+          href="#"
+          class="text-decoration-none btn btn-outline-dark"
+          style="font-size: 14px"
+          >Learn more</a
+        >
+      </div>
+
+      <div
+        id="newYearDealsCarousel"
+        class="carousel slide bg-light"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner" style="background-color: #ffffff">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-2 ms-3 pt-3">
+                <div style="width: 200px; height: 200px">
+                  <img
+                    src="./images/go-to-guide/1.jpg"
+                    class="img-fluid"
+                    alt="Supermarket"
+                  />
+                </div>
+              </div>
+
+              <div class="col-2 ms-3 pt-3">
+                <div style="width: 200px; height: 200px">
+                  <img
+                    src="./images/go-to-guide/2.jpg"
+                    class="img-fluid"
+                    alt="Supermarket"
+                  />
+                </div>
+              </div>
+
+              <div class="col-2 ms-3 pt-3">
+                <div style="width: 200px; height: 200px">
+                  <img
+                    src="./images/go-to-guide/3.jpg"
+                    class="img-fluid"
+                    alt="Supermarket"
+                  />
+                </div>
+              </div>
+
+              <div class="col-2 ms-3 pt-3">
+                <div style="width: 200px; height: 200px">
+                  <img
+                    src="./images/go-to-guide/4.jpg"
+                    class="img-fluid"
+                    alt="Supermarket"
+                  />
+                </div>
+              </div>
+
+              <div class="col-2 ms-3 pt-3">
+                <div style="width: 200px; height: 200px">
+                  <img
+                    src="./images/go-to-guide/5.jpg"
+                    class="img-fluid"
+                    alt="Supermarket"
+                  />
+                </div>
+              </div>
+
+              <div class="col-2 ms-3 pt-3">
+                <div style="width: 200px; height: 200px">
+                  <img
+                    src="./images/go-to-guide/6.jpg"
+                    class="img-fluid"
+                    alt="Supermarket"
+                  />
+                </div>
+              </div>
+
+              <div class="col-2 ms-3 pt-3">
+                <div style="width: 200px; height: 200px">
+                  <img
+                    src="./images/go-to-guide/7.jpg"
+                    class="img-fluid"
+                    alt="Supermarket"
+                  />
+                </div>
+              </div>
+
+              <div class="col-2 ms-3 pt-3">
+                <div style="width: 200px; height: 200px">
+                  <img
+                    src="./images/go-to-guide/8.jpg"
+                    class="img-fluid"
+                    alt="Supermarket"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brands -->
+    <div class="container-fluid px-5 bg-light py-2">
+      <h1 class="display-5 text-center mb-4 fw-bold">Your favorite brands</h1>
+
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
+        <!-- Row 1 -->
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img src="./images/Brands/1.avif" alt="B.TECH" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img src="./images/Brands/2.avif" alt="ELARABY" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img src="./images/Brands/3.avif" alt="SAMSUNG" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img src="./images/Brands/4.avif" alt="essence" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img src="./images/Brands/5.avif" alt="DeFacto" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img src="./images/Brands/6.avif" alt="XIAOMI" class="img-fluid" />
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img src="./images/Brands/7.avif" alt="adidas" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img src="./images/Brands/8.avif" alt="Mienta" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img src="./images/Brands/9.avif" alt="L'OREAL" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img src="./images/Brands/10.avif" alt="LG" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img
+              src="./images/Brands/11.avif"
+              alt="SKECHERS"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img src="./images/Brands/12.avif" alt="BRAUN" class="img-fluid" />
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img
+              src="./images/Brands/13.avif"
+              alt="MAYBELLINE"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img src="./images/Brands/14.avif" alt="PUMA" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img
+              src="./images/Brands/15.avif"
+              alt="TORNADO"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img src="./images/Brands/16.avif" alt="ARIEL" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img src="./images/Brands/17.avif" alt="Lenovo" class="img-fluid" />
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="bg-white rounded p-4 shadow-sm d-flex align-items-center justify-content-center"
+            style="height: 100px"
+          >
+            <img
+              src="./images/Brands/18.avif"
+              alt="Pampers"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid px-5 py-0 bg-white">
+      <!-- First Section -->
+      <div class="card mb-4 border-0 rounded-0">
+        <div class="card-body">
+          <h2 class="card-title h4 mb-2 fs-5">
+            Superior online shopping in Egypt
+          </h2>
+          <p class="card-text text-muted mb-1">
+            Offering a world-class customer experience, Amanon is the top choice
+            for online shopping in Egypt. From
+            <a href="#" class="text-primary text-decoration-none"
+              >electronics products</a
+            >
+            to fashion, kids' toys,
+            <a href="#" class="text-primary text-decoration-none"
+              >baby products</a
+            >, homeware, furniture, sporting and outdoor products,
+            <a href="#" class="text-primary text-decoration-none"
+              >beauty products</a
+            >, books and stationery, groceries, and much, much more, the Amanon
+            Egypt store has millions of authentic products. As a
+            customer-centric store, we are committed to providing our customers
+            with authentic products, top brands, and long-term quality. We make
+            it easier to buy online with flexible payment plans to help you
+            save, regular sales, gift cards, wishlists, the Amanon shopping app,
+            and other benefits exclusive to Amanon customers. We deliver t...
+          </p>
+          <a href="#" class="btn btn-link text-primary p-0">Read More</a>
+        </div>
+      </div>
+
+      <!-- Second Section -->
+      <div class="card mb-4 border-0 rounded-0">
+        <div class="card-body">
+          <h2 class="card-title h4 mb-2 fs-5">
+            Shop the best products & top brands at Amanon Egypt
+          </h2>
+          <p class="card-text text-muted mb-1">
+            If you're looking for a wide range of products from top brands,
+            Amanon Egypt has you covered. In our electronics department, you'll
+            find
+            <a href="#" class="text-primary text-decoration-none"
+              >mobile phones</a
+            >
+            and mobile phone accessories, wireless, noise cancelling and in-ear
+            <a href="#" class="text-primary text-decoration-none">headsets</a>,
+            <a href="#" class="text-primary text-decoration-none">laptops</a>
+            and laptop accessories, audio-visual products, wearable devices,
+            smartwatches and other wearable technology, cameras,
+            <a href="#" class="text-primary text-decoration-none">TVs</a>, video
+            game consoles such as PC and Xbox controllers, and a variety of
+            <a href="#" class="text-primary text-decoration-none">video games</a
+            >. Shop top tech brands in this department, including
+            <a href="#" class="text-primary text-decoration-none">Apple</a>,
+            Sony, Xiaomi, Huawei, Lenovo, Samsung, and others. On the hunt for
+            the best mobiles in Egypt? At Amanon, we've put together a
+            collection of top-selling mobiles for every need...
+          </p>
+          <a href="#" class="btn btn-link text-primary p-0">Read More</a>
+        </div>
+      </div>
+
+      <!-- Third Section -->
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <h2 class="card-title h4 mb-2 fs-5">
+            Stress-free Egypt online shopping
+          </h2>
+          <p class="card-text text-muted mb-1">
+            You can always have peace of mind when you buy online at Amanon. We
+            make online shopping in Cairo, Giza and other Egypt cities as easy
+            as possible, with a number of features and flexible payment plans
+            that make shopping simpler, faster, and better. Our Buy Now, Pay
+            Later plans, these include valU (BNPL over 60 months at 0%
+            downpayment, 0% purchase fees). Payment options include cash on
+            delivery as well as credit, debit cards and Mobile Wallet (VCN). For
+            even more convenience, we offer installments up to 36 months with
+            National Bank of Egypt, CIB, Banque Misr, HSBC, Emirates NBD and
+            more Returns are quick and easy, with a 15-day return policy. For a
+            superior...
+          </p>
+          <a href="#" class="btn btn-link text-primary p-0">Read More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white">
+      <!-- Help Section -->
+      <div class="container-fluid" style="background-color: #485769">
+        <div class="row align-items-center">
+          <a href="#" class="p-3 text-light text-decoration-none text-center"
+            >Back to top</a
+          >
+        </div>
+      </div>
+
+      <!-- Categories Section -->
+      <div class="container-fluid px-5 py-4" style="background-color: #232f3e">
+        <div class="row">
+          <!-- ELECTRONICS -->
+          <div class="col-md-2">
+            <h6 class="text-white mb-3 fw-bold">ELECTRONICS</h6>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none">Mobiles</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none">Tablets</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none">Laptops</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Home Appliances</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Camera, Photo & Video</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Televisions</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Headphones</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Video Games</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- FASHION -->
+          <div class="col-md-2">
+            <h6 class="text-white mb-3 fw-bold">FASHION</h6>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Women's Fashion</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Men's Fashion</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Girls' Fashion</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Boys' Fashion</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Men's Watches</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Women's Watches</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none">Eyewear</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Bags & Luggage</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- HOME AND KITCHEN -->
+          <div class="col-md-2">
+            <h6 class="text-white mb-3 fw-bold">HOME AND KITCHEN</h6>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Kitchen & Dining</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none">Bedding</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none">Bath</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Home Decor</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Home Appliances</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Tools & Home Improvement</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Patio, Lawn & Garden</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Home Storage & Organisation</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- BEAUTY -->
+          <div class="col-md-2">
+            <h6 class="text-white mb-3 fw-bold">BEAUTY</h6>
+            <ul class="list-unstyled text-white">
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Women's Fragrance</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Men's Fragrance</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none">Make-up</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none">Haircare</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none">Skincare</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Personal Care</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Tools & Accessories</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- KIDS, BABY & TOYS -->
+          <div class="col-md-2">
+            <h6 class="text-white mb-3 fw-bold">KIDS, BABY & TOYS</h6>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Strollers, Prams & Accessories</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Car Seats</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Baby Clothing</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none">Feeding</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Bathing & Skincare</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Diapering</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Baby & Toddler Toys</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Toys & Games</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- TOP BRANDS & DISCOVER NOW -->
+          <div class="col-md-1">
+            <div class="mb-4">
+              <h6 class="text-white mb-3 fw-bold">TOP BRANDS</h6>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <a href="#" class="text-white text-decoration-none">Apple</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-white text-decoration-none"
+                    >Samsung</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-white text-decoration-none">Nike</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-white text-decoration-none"
+                    >Ray-ban</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-white text-decoration-none">Tefal</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-white text-decoration-none"
+                    >L'Oreal Paris</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-white text-decoration-none">Chicco</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="text-white text-decoration-none"
+                    >Tornado</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-1">
+            <h6 class="text-white mb-3">DISCOVER NOW</h6>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#" class="text-white text-decoration-none"
+                  >Brand Glossary</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shop on the Go & Social Links -->
+      <div
+        class="container-fluid px-5 py-3 border-top"
+        style="background-color: #232f3e"
+      >
+        <div class="row d-flex justify-content-lg-between">
+          <div class="col-md-6">
+            <h6 class="text-white mb-3 text-center">SHOP ON THE GO</h6>
+            <div class="d-flex gap-2 justify-content-center">
+              <a href="#" class="text-decoration-none">
+                <img
+                  src="./images/Footer/app-store.svg"
+                  alt="App Store"
+                  class="img-fluid"
+                  width="120"
+                />
+              </a>
+              <a href="#" class="text-decoration-none">
+                <img
+                  src="./images/Footer/google-play.svg"
+                  alt="Google Play"
+                  class="img-fluid"
+                  width="120"
+                />
+              </a>
+              <a href="#" class="text-decoration-none">
+                <img
+                  src="./images/Footer/Huawei-icon.avif"
+                  alt="App Gallery"
+                  class="img-fluid"
+                  width="120"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <h6 class="mb-2 text-center text-white">CONNECT WITH US</h6>
+            <div class="d-flex gap-4 justify-content-center">
+              <a href="#" class="text-decoration-none">
+                <i
+                  class="bi bi-facebook text-white"
+                  style="font-size: 25px"
+                ></i>
+              </a>
+              <a href="#" class="text-decoration-none">
+                <i class="bi bi-twitter text-white" style="font-size: 25px"></i>
+              </a>
+              <a href="#" class="text-decoration-none">
+                <i
+                  class="bi bi-instagram text-white"
+                  style="font-size: 25px"
+                ></i>
+              </a>
+              <a href="#" class="text-decoration-none">
+                <i
+                  class="bi bi-linkedin text-white"
+                  style="font-size: 25px"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright & Payment Methods -->
+      <div
+        class="container-fluid border-top py-3 pb-5"
+        style="background-color: #131a22"
+      >
+        <div class="container-fluid">
+          <div class="row d-flex align-items-center justify-content-start">
+            <div class="col-md-2">
+              <small class="text-white"
+                >© 2025 Amanon. All Rights Reserved</small
+              >
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="d-flex gap-3 justify-content-center">
+                <img
+                  src="./images/Footer/card-mastercard.svg"
+                  alt="Mastercard"
+                  class="img-fluid"
+                />
+                <img
+                  src="./images/Footer/card-visa.svg"
+                  alt="Visa"
+                  class="img-fluid"
+                />
+                <img
+                  src="./images/Footer/valu_v2.svg"
+                  alt="valU"
+                  class="img-fluid"
+                />
+                <img
+                  src="./images/Footer/card-amex.svg"
+                  alt="American Express"
+                  class="img-fluid"
+                />
+                <img
+                  src="./images/Footer/cod-en.svg"
+                  alt="Cash"
+                  class="img-fluid"
+                />
+              </div>
+            </div>
+            <div class="col-md-6 text-end">
+              <div class="d-flex gap-3 justify-content-end">
+                <a href="#" class="text-white text-decoration-none small"
+                  >Careers</a
+                >
+                <a href="#" class="text-white text-decoration-none small"
+                  >Warranty Policy</a
+                >
+                <a href="#" class="text-white text-decoration-none small"
+                  >Sell with us</a
+                >
+                <a href="#" class="text-white text-decoration-none small"
+                  >Terms of Use</a
+                >
+                <a href="#" class="text-white text-decoration-none small"
+                  >Terms of Sale</a
+                >
+                <a href="#" class="text-white text-decoration-none small"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const carousels = document.querySelectorAll(".slide");
+        carousels.forEach((carousel) => {
+          const bsCarousel = new bootstrap.Carousel(carousel, {
+            interval: 5000,
+            ride: "carousel",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
