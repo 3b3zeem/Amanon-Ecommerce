@@ -21,6 +21,7 @@ Amanon is an e-commerce platform that provides users with a seamless online shop
 ---
 
 ## Screenshots
+![screenshot](https://github.com/user-attachments/assets/a9971517-5154-43f7-92e9-60d6f031595c)
 
 
 ## Installation & Usage
